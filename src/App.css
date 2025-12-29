@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
 #root {
   max-width: 600px;
   margin: 40px auto;
@@ -18,14 +23,17 @@
   flex: 1;
   padding: 12px 16px;
   font-size: 16px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #333;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
 }
 
 .mainForm input:focus {
   border-color: #646cff;
+  background-color: #333;
 }
 
 .mainForm button {
@@ -41,7 +49,7 @@
 }
 
 .mainForm button:hover {
-  background-color: #4f5ad4;
+  background-color: #7c84ff;
 }
 
 .todoCollection {
@@ -51,14 +59,14 @@
 }
 
 .todoCard {
-  display:flex;
+  display: flex;
   flex-direction: row;
   gap: 15px;
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
+  background-color: #2a2a2a;
+  border: 1px solid #404040;
   border-radius: 8px;
   text-align: left;
   font-size: 16px;
@@ -66,17 +74,20 @@
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
+  color: #e0e0e0;  /* Light text on dark background */
 }
 
 .todoCard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  background-color: #333;
 }
 
-.todoCard.complete{
-  background-color: #d4edda;
+.todoCard.complete {
+  background-color: #1a3a1a;  /* Dark green */
   border-left: 3px solid #4caf50;
-  opacity: 0.8;
+  opacity: 0.9;
+  color: #a8d5a8;  /* Lighter green text */
 }
 
 .editInput {
@@ -88,14 +99,16 @@
   width: 100%;
   font-family: inherit;
   transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
 }
 
 .editInput:focus {
-  border-color: #4f5ad4;
-  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+  border-color: #7c84ff;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.3);
+  background-color: #333;
 }
 
 .editInput:hover {
-  border-color: #4f5ad4;
+  border-color: #7c84ff;
 }
-
