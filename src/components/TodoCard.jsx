@@ -1,27 +1,27 @@
 import { useState } from "react";
 
-export default function TodoCard({ todo, removeTodo, editTodoText }) {
+export default function TodoCard({ todo, removeTodo, editUtils }) {
   const { id, text, completed } = todo;
 
-  const [completion, setCompletion] = useState(completed);
 
   const [isEdit, setIsEdit] = useState(false);
 
   const [editText, setEditText] = useState(text);
 
   const toggleCompletion = () => {
-    setCompletion(!completion);
+    editUtils.setTodoCompletion(id, !completed);
+    
   };
 
   const setNewText = (e) => {
     e.preventDefault();
-    editTodoText(id, editText);
+    editUtils.editTodoText(id, editText);
     setIsEdit(false);
   };
 
   return (
     <button
-      className={completion ? "todoCard complete" : "todoCard"}
+      className={completed ? "todoCard complete" : "todoCard"}
       onClick={() => {
         toggleCompletion();
       }}

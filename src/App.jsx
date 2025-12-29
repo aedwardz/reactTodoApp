@@ -64,31 +64,43 @@ function App() {
     return count;
   };
 
-   const editTodoText = (id, newText) => {
-  console.log(`editing id: ${id} with edit text: ${newText}`);
-  console.log(`todos before edit: ${todos}`)
-  setTodos(todos.map((todo) => {
-    if (todo.id === id) {
-      return { ...todo, text: newText };
-    }
-    return todo;
-  }))
-      console.log(`todos after edit: ${todos}`)
+  const editTodoText = (id, newText) => {
+    console.log(`editing id: ${id} with edit text: ${newText}`);
+    console.log(`todos before edit: ${todos}`)
+    setTodos(todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, text: newText };
+      }
+      return todo;
+    }))
+        console.log(`todos after edit: ${todos}`)
+}
 
+const setTodoCompletion=(id, isComplete) =>{
+  console.log(`changing completion of id:${id} to ${isComplete} `)
+  setTodos(todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: isComplete };
+      }
+      return todo;
+    }))
+}
+
+const editUtils = {
+  editTodoText:editTodoText,
+  setTodoCompletion:setTodoCompletion
 }
 
   return (
     <>
       <TodoForm
         addTodo={addTodo}
-        editConfig={editConfig}
-        setEditConfig={setEditConfig}
       />
       {countRemainingTodos() > 0 && <p>{`${countRemainingTodos()} remaining todos`}</p> }
       <TodoCollection
         todos={todos}
         removeTodo={removeTodo}
-        editTodoText={editTodoText}
+        editUtils={editUtils}
       ></TodoCollection>
     </>
   );

@@ -1,21 +1,14 @@
 import { useState } from "react";
 
 
-export default function TodoForm({addTodo, editConfig, setEditConfig}) {
+export default function TodoForm({addTodo}) {
   const [inputText, setInputText] = useState('')
   const [isEmptyTodo, setIsEmptyTodo] = useState(false)
 
   const handleSubmit = (e) =>{
     e.preventDefault();
     if (inputText === ''){
-      setIsEmptyTodo(true)
-    }
-    else{
-      if (editConfig.isEdit){
-        let editConfigCopy = structuredClone(editConfig);
-        editConfigCopy.text = inputText
-        setEditConfig(editConfigCopy)
-      }
+      setIsEmptyTodo(true)}
     const todo = {
       id: Date.now(),
       text: inputText,
@@ -23,12 +16,12 @@ export default function TodoForm({addTodo, editConfig, setEditConfig}) {
     }
     addTodo(todo)
     setInputText('')}
-  }
+  
     
   return (
     <form className="mainForm" onSubmit={handleSubmit}>
       <input
-        value={editConfig.isEdit ? editConfig.text : inputText}
+        value={inputText}
         onChange={(e) => {setInputText(e.target.value)}}
       />
       <button type="submit">
