@@ -78,3 +78,24 @@
   border-left: 3px solid #4caf50;
   opacity: 0.8;
 }
+
+.editInput {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #646cff;
+  border-radius: 6px;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.editInput:focus {
+  border-color: #4f5ad4;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+}
+
+.editInput:hover {
+  border-color: #4f5ad4;
+}
+

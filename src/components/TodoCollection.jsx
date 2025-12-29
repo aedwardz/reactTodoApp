@@ -1,13 +1,13 @@
 import TodoCard from "./TodoCard";
 
-export default function TodoCollection({ todos, removeTodo }) {
+export default function TodoCollection({ todos, removeTodo, editTodoText }) {
 
   console.log('TodoCollection received:', todos)
   return (
     <div className="todoCollection">
       {todos.map((todo) => {
         return (
-          <TodoCard id={todo.id}text={todo.text} completed={todo.completed} removeTodo={removeTodo}></TodoCard>
+          <TodoCard todo={todo} removeTodo={removeTodo} editTodoText={editTodoText}></TodoCard>
         );
       })}
     </div>
